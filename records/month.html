@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Month</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+  <header>
+    <h1 style="font-size:26px;">เลือกเดือน</h1>
+  </header>
+
+  <div class="grid" id="monthBox"></div>
+
+  <div class="card" onclick="back()" style="text-align:center;cursor:pointer;">
+    ⬅️ กลับ
+  </div>
+  <div class="credit">rent calculator by lukinn</div>
+</div>
+
+<script>
+const year = Number(sessionStorage.getItem("year"));
+const q = sessionStorage.getItem("quarter");
+
+const map={
+  Q1:["Jan","Feb","Mar"],
+  Q2:["Apr","May","Jun"],
+  Q3:["Jul","Aug","Sep"],
+  Q4:["Oct","Nov","Dec"]
+};
+
+let months = map[q];
+if(year===2025 && q==="Q3") months=["Sep"];
+
+months.forEach(m=>{
+  const c=document.createElement("div");
+  c.className="card";
+  c.innerText=m;
+  c.onclick=()=>{
+    sessionStorage.setItem("month",m);
+    location.href="input.html";
+  };
+  monthBox.appendChild(c);
+});
+
+function back(){
+  location.href="quarter.html";
+}
+</script>
+
+</body>
+</html>

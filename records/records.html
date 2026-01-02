@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Year</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <header>
+    <h1 style="font-size:32px;">เลือกปี</h1>
+  </header>
+
+  <!-- ปุ่มดูข้อมูลที่กรอก -->
+  <div class="card"
+       style="text-align:center; cursor:pointer;"
+       onclick="goRecordsOverview()">
+    📊 ดูข้อมูลที่กรอกแล้ว
+  </div>
+
+  <!-- เลือกปี -->
+  <div class="grid">
+    <div class="card" onclick="go(2025)">2025</div>
+    <div class="card" onclick="go(2026)">2026</div>
+    <div class="card" onclick="go(2027)">2027</div>
+    <div class="card" onclick="go(2028)">2028</div>
+    <div class="card" onclick="go(2029)">2029</div>
+    <div class="card" onclick="go(2030)">2030</div>
+  </div>
+
+  <!-- ปุ่มกลับ Dashboard (ล่างสุด) -->
+  <div style="margin-top:30px; text-align:center;">
+    <button class="logout" onclick="goDashboard()">
+      ← กลับหน้า Dashboard
+    </button>
+  </div>
+  <div class="credit">rent calculator by lukinn</div>
+
+</div>
+
+<script>
+if (sessionStorage.getItem("loggedIn") !== "true") {
+  location.href = "../index.html";
+}
+
+function go(y) {
+  sessionStorage.setItem("year", y);
+  location.href = "quarter.html";
+}
+
+function goDashboard() {
+  location.href = "../dashboard.html";
+}
+
+function goRecordsOverview() {
+  location.href = "records-overview.html";
+}
+</script>
+
+</body>
+</html>

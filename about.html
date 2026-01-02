@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>App Info | Rent Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <header>
+      <h1 style="font-size:28px;">App Info</h1>
+    </header>
+
+    <!-- APP CARD -->
+    <div class="card">
+      <h2>🏠 Rent Calculator</h2>
+      <p style="opacity:.7; font-size:14px; line-height:1.7;">
+        Web / app สำหรับคำนวณค่าเช่าบ้านรายไตรมาส<br>
+        แยกน้ำ / ไฟ / ค่าเช่าอย่างเป็นระบบ
+      </p>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="card">
+      <p style="font-size:14px;"><strong>Version:</strong> 1.0.0</p>
+      <p style="font-size:14px;"><strong>Developer:</strong> Lukinn</p>
+      <p style="font-size:14px;"><strong>Storage:</strong> Browser (Local / Session)</p>
+      <p style="font-size:14px;"><strong>Hosting:</strong> GitHub Pages</p>
+    </div>
+
+    <!-- CREDIT -->
+    <div class="card" style="text-align:center; opacity:.7;">
+      Rent Calculator by Lukinn ✨
+    </div>
+
+    <!-- BACK -->
+    <div class="card" onclick="goBack()" style="cursor:pointer; text-align:center;">
+      ⬅️ กลับไปหน้า Dashboard
+    </div>
+    <div class="credit">rent calculator by lukinn</div>
+
+  </div>
+
+  <script>
+    if (sessionStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "index.html";
+    }
+
+    function goBack() {
+      window.location.href = "dashboard.html";
+    }
+  </script>
+
+</body>
+</html>

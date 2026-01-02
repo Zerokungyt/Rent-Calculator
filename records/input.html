@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Input Month Data</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+  <header>
+    <h1 id="title"></h1>
+  </header>
+
+  <div class="card">
+    <input id="x" type="number" placeholder="น้ำหน้า" min="0">
+    <input id="y" type="number" placeholder="น้ำหลัง" min="0">
+    <input id="z" type="number" placeholder="ไฟ" min="0">
+    <button id="saveBtn">บันทึก</button>
+  </div>
+
+  <div class="card" onclick="back()" style="text-align:center;cursor:pointer;">
+    ⬅️ กลับ
+  </div>
+</div>
+
+<script src="../js/records.js"></script>
+<script>
+const year = sessionStorage.getItem("year");
+const quarter = sessionStorage.getItem("quarter");
+const month = sessionStorage.getItem("month");
+
+document.getElementById("title").innerText = `${year} ${quarter} - ${month}`;
+
+// โหลดค่าเก่า ถ้ามี
+const record = getMonthRecord(year, quarter, month);
+if(record){
+  x.value = record.front;
+  y.value = record.back;
+  z.value = record.elec;
+}
+
+// บันทึกข้อมูล
+document.getElementById("saveBtn").onclick = ()=>{
+  const front = parseInt(x.value) || 0;
+  const back  = parseInt(y.value) || 0;
+  const elec  = parseInt(z.value) || 0;
+
+  saveMonthRecord(year, quarter, month, {front, back, elec});
+  alert("บันทึกเรียบร้อย ✅");
+  location.href="records-overview.html"; // กลับไปหน้า overview อัตโนมัติ
+}
+
+function back(){
+  location.href="month.html";
+}
+</script>
+
+</body>
+</html>

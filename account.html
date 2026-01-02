@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Account | Rent Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <header>
+      <h1 style="font-size:28px;">Account Settings</h1>
+    </header>
+
+    <!-- ACCOUNT INFO -->
+    <div class="card">
+      <h2>👤 User</h2>
+      <p style="opacity:.6; font-size:14px;">
+        Username: <strong>Lukinn</strong>
+      </p>
+    </div>
+
+    <!-- SECURITY -->
+    <div class="card">
+      <h2>🔐 Security</h2>
+      <p style="opacity:.6; font-size:14px; margin-bottom:16px;">
+        ออกจากระบบเมื่อใช้งานเสร็จเพื่อความปลอดภัย
+      </p>
+
+      <button onclick="logout()" style="background:linear-gradient(135deg,#ef4444,#dc2626); box-shadow:0 10px 25px rgba(239,68,68,.45);">
+        Logout
+      </button>
+    </div>
+
+    <!-- BACK -->
+    <div class="card" onclick="goBack()" style="cursor:pointer; text-align:center;">
+      ⬅️ กลับไปหน้า Dashboard
+    </div>
+    <div class="credit">rent calculator by lukinn</div>
+
+  </div>
+
+  <script>
+    if (sessionStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "index.html";
+    }
+
+    function logout() {
+      sessionStorage.removeItem("loggedIn");
+      window.location.href = "index.html";
+    }
+
+    function goBack() {
+      window.location.href = "dashboard.html";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | Rent Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <!-- HEADER -->
+    <header>
+      <h1 style="font-size:32px; font-weight:600;">
+        สวัสดี ลูกอิน 👋
+      </h1>
+    </header>
+
+    <!-- WELCOME CARD -->
+    <div class="card">
+      <h2>Rent Calculator</h2>
+      <p style="opacity:.6; font-size:14px;">
+        เลือกเมนูที่ต้องการใช้งาน
+      </p>
+    </div>
+
+    <!-- MENU GRID -->
+    <div class="grid">
+
+      <!-- RECORDS -->
+      <div class="card" onclick="go('records/records.html')" style="cursor:pointer">
+        <h2>📁 ข้อมูลรายเดือน</h2>
+        <p style="opacity:.6; font-size:13px;">
+          แยกตามปี และ ไตรมาส
+        </p>
+      </div>
+
+      <!-- CALCULATOR -->
+      <div class="card" onclick="go('calculator.html')" style="cursor:pointer">
+        <h2>🧮 คำนวณค่าเช่า</h2>
+        <p style="opacity:.6; font-size:13px;">
+          รวมยอดรายไตรมาส
+        </p>
+      </div>
+
+      <!-- ACCOUNT -->
+      <div class="card" onclick="go('account.html')" style="cursor:pointer">
+        <h2>⚙️ Account</h2>
+        <p style="opacity:.6; font-size:13px;">
+          ตั้งค่า / ออกจากระบบ
+        </p>
+      </div>
+
+      <!-- APP INFO -->
+      <div class="card" onclick="go('about.html')" style="cursor:pointer">
+        <h2>ℹ️ App Info</h2>
+        <p style="opacity:.6; font-size:13px;">
+          เวอร์ชัน & ผู้พัฒนา
+        </p>
+      </div>
+
+    </div>
+    <div class="credit">rent calculator by lukinn</div>
+
+  </div>
+
+  <script>
+    // login guard
+    if (sessionStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "index.html";
+    }
+
+    function go(page) {
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Quarter</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+  <header>
+    <h1 style="font-size:28px;">เลือกไตรมาส</h1>
+  </header>
+
+  <div class="grid" id="qBox"></div>
+
+  <div class="card" onclick="back()" style="text-align:center;cursor:pointer;">
+    ⬅️ กลับเลือกปี
+  </div>
+  <div class="credit">rent calculator by lukinn</div>
+</div>
+
+<script>
+const year = Number(sessionStorage.getItem("year"));
+const qBox = document.getElementById("qBox");
+
+let qs = ["Q1","Q2","Q3","Q4"];
+if(year===2025) qs=["Q3","Q4"];
+
+qs.forEach(q=>{
+  const c=document.createElement("div");
+  c.className="card";
+  c.innerText=q;
+  c.onclick=()=>{
+    sessionStorage.setItem("quarter",q);
+    location.href="month.html";
+  };
+  qBox.appendChild(c);
+});
+
+function back(){
+  location.href="records.html";
+}
+</script>
+
+</body>
+</html>
