@@ -117,5 +117,5 @@ function closeReceipt(){
 }
 
 function goDashboard(){
-  location.href="../dashboard.html";
+  location.href="dashboard.html";
 }
